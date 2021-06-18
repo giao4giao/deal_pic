@@ -42,7 +42,7 @@ l=[]
 for a,b,c in os.walk('.'):
 	#print(a,b,c)
 	if b==[]:		
-		l+=[os.path.join(a,i) for i in c if os.path.splitext(i)[-1]=='.png']
+		l+=[os.path.join(a,i) for i in c if os.path.splitext(i)[-1] in ('.png','.jpg')]
 #print(l)
 num=len(l)
 print(num)
@@ -51,7 +51,7 @@ for i in l:
 	n+=1
 	print('正在进行',i,n,'共',num)
 	img=Image.open(i)
-	img=transparent_back2(img)
+	img=transparent_back(img)
 	img.save(i)
 	
 
